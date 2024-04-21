@@ -100,7 +100,7 @@ class All
 }
 
 // let all = new All("http://localhost:3000")
-let all = new All("")
+let all = new All("https://noticias-hoy.onrender.com")
 
 export default all;
   
