@@ -151,12 +151,12 @@ function Header() {
       <nav className='flex px-4 shadow-md bg-white justify-between flex-col lg:flex-row'>
 
         <div className='flex items-center justify-between lg:justify-normal'>
-          <NavLink to="/" className='text-3xl py-3 logo mr-6'>Noticias <span className='bg-blue-700 text-white py-0.5 px-2 rounded-lg'>Hoy</span></NavLink>
+          <NavLink  to="/" className='text-3xl py-3 logo mr-6'>Noticias <span className='bg-blue-700 text-white py-0.5 px-2 rounded-lg'>Hoy</span></NavLink>
           <svg xmlns="http://www.w3.org/2000/svg" onClick={handleMenu} width="32" fill="currentColor" className='hover:text-blue-700 hover:cursor-pointer lg:hidden' viewBox="0 0 16 16">
             <path fillRule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5m0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5"/>
           </svg>
         </div>  
-
+          
           <ul className={ menu ? 'hidden lg:flex flex-col lg:flex-row mr-0 lg:mr-auto' : 'flex flex-col lg:flex-row mr-0 lg:mr-auto'}>
             <li className='flex items-center'><NavLink className={isActive('/') ? 'border-blue-700 bg-blue-100 lg:bg-white w-full border-l-4 lg:border-l-0 lg:hover:border-l-0 lg:hover:border-b-4 lg:border-b-4 text-black px-2 py-2 lg:py-4 text-md font-medium' : 'text-gray-500 hover:bg-blue-100 lg:hover:bg-white w-full border-white border-l-4 lg:border-l-0 lg:hover:border-l-0 hover:border-l-4 hover:border-blue-600 lg:border-b-4 hover:text-black px-2 py-2 lg:py-4 text-md font-medium'} to="/">Inicio</NavLink></li>
             <li className='flex items-center'><NavLink className={isActive('/general') ? 'border-blue-700 bg-blue-100 lg:bg-white w-full border-l-4 lg:border-l-0 lg:hover:border-l-0 lg:hover:border-b-4 lg:border-b-4 text-black px-2 py-2 lg:py-4 text-md font-medium' : 'text-gray-500 hover:bg-blue-100 lg:hover:bg-white w-full border-white border-l-4 lg:border-l-0 lg:hover:border-l-0 hover:border-l-4 hover:border-blue-600 lg:border-b-4 hover:text-black px-2 py-2 lg:py-4 text-md font-medium'} to="/general">General</NavLink></li>
