@@ -1,13 +1,380 @@
+/* general styles */
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  padding: 0;
+  /* font-family: cuerpo; */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  /* background-color: rgb(244, 244, 244); */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+::-webkit-scrollbar 
+{
+  width: 10px; 
+  height: 10px;
 }
+  
+::-webkit-scrollbar-thumb 
+{
+  background-color: #888; 
+  border-radius: 6px; 
+}
+  
+::-webkit-scrollbar-track 
+{
+  background-color: #f4f4f4;
+}
+
+@font-face {
+  font-family: 'titulo';
+  src: url(./fonts/PTSerif-Regular.ttf);
+}
+
+@font-face {
+  font-family: 'cuerpo';
+  src: url(./fonts/Merriweather-Regular.ttf);
+}
+
+.logo
+{
+  font-family: titulo;
+}
+
+/* tailwind styles */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* style for notifications */
+
+#notification
+{
+  position: fixed;
+  right: 0;
+  top: 0;
+  overflow: hidden;
+  z-index: 1;
+  padding: 5px 0 5px 5px;
+}
+
+.cont
+{
+  display: flex;
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0px 0px 4px rgba(48, 48, 48, 0.776);
+  padding: 15px;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  position: relative;
+  margin-top: 20px;
+}
+
+.notificationSpace
+{
+  display: flex;
+  align-items: center;
+}
+
+.negativeIcon
+{
+  color: red;
+  margin-right: 8px;
+}
+
+.positiveIcon
+{
+  color: green;
+  margin-right: 8px;
+}
+
+.bar
+{
+  display: flex;
+  height: 2px;
+  background-color: rgb(0, 140, 255);
+  position: absolute;
+  bottom: 0px;
+  animation-duration: 2s;
+  animation-name: prueba;
+}
+
+@keyframes prueba
+{
+  from
+  {
+     width: 90%;
+  }
+  to
+  {
+     width: 0%;
+  }
+}
+
+.cont p
+{
+  margin: 0;
+  font-size: large;
+}
+
+/* style for the login page */
+.bg-img
+{
+  background-image: url("img/background/fondo\ 4.jpeg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.bg-img-black
+{
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.customContainer
+{
+  width: 50%;
+  height: 100%;
+  background-color: rgb(255, 255, 255);
+  border-bottom-right-radius: 15px;
+  border-top-right-radius: 15px;
+  position: absolute;
+  left: 0;
+}
+
+.customContainer2
+{
+  animation: move 1s forwards;
+}
+
+@keyframes move
+{
+  from 
+  {
+    left: 0;
+    border-bottom-right-radius: 15px;
+    border-top-right-radius: 15px;
+    background-color: white;
+  }
+  to 
+  {
+    left: 50%;
+    border-bottom-right-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: 15px;
+    border-top-left-radius: 15px;
+    background-color: rgb(29, 78, 216);
+  }
+}
+
+.logoLogin
+{
+  animation: changeTitle 1s forwards;
+}
+
+@keyframes changeTitle
+{
+  from 
+  {
+    color: rgb(0, 0, 0);
+  }
+  to 
+  {
+    color: rgb(255, 255, 255);
+  }
+}
+
+.logoLogin2
+{
+  animation: changeTitle2 1s forwards;
+}
+
+@keyframes changeTitle2
+{
+  from 
+  {
+    color: rgb(255, 255, 255);
+    background-color: rgb(29, 78, 216);
+  }
+  to 
+  {
+    color: rgb(29, 78, 216);
+    background-color: rgb(255, 255, 255);
+  }
+}
+
+.askHide
+{
+  animation: nosee 0.1s forwards;
+}
+
+.buttomHude
+{
+  animation: nosee 0.1s forwards;
+}
+
+@keyframes nosee
+{
+  from 
+  {
+    display: flex;
+  }
+  to 
+  {
+    display: none;
+  }
+}
+
+.socialMediaChange
+{
+  animation: changeSocialMedia 0.1s forwards;
+}
+
+@keyframes changeSocialMedia
+{
+  from 
+  {
+    color: rgb(30 64 175);
+  }
+  to 
+  {
+    color: rgb(255, 255, 255);
+  }
+}
+
+/* article style */
+.hideLines
+{
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  -webkit-line-clamp: 3; 
+  text-overflow: ellipsis; 
+}
+
+.hideTitle
+{
+  -webkit-line-clamp: 1;
+}
+
+.hideLines2
+{
+  -webkit-line-clamp: 4; 
+}
+
+.customSize
+{
+  height: 500px;
+}
+
+.categories
+{
+  height: 100px;
+  width: 370px;
+  background-size: cover;
+  background-position: center;
+}
+
+.bgShadow
+{
+  background-color: rgba(0, 0, 0, 0.59);
+}
+
+.bgShadow:hover
+{
+  background-color: rgba(0, 0, 0, 0.62);
+  transition: background-color 0.2s ease;
+}
+
+.bgShadowFirt
+{
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+.bgShadowFirt:hover
+{
+  background-color: rgba(0, 0, 0, 0.35);
+  transition: background-color 0.2s ease;
+}
+
+.bgShadowArticle
+{
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.bgShadowArticle:hover
+{
+  background-color: rgba(0, 0, 0, 0.25);
+  transition: background-color 0.2s ease;
+}
+
+.deleteShadow
+{
+  background-color: rgba(0, 0, 0, 0.687);
+}
+
+
+#general
+{
+  background-image: url('img/categories/general.jpg');
+}
+
+#technology
+{
+  background-image: url('img/categories/tegnologia.webp');
+}
+
+#sport
+{
+  background-image: url('img/categories/deporte.webp');
+}
+
+#entertainment
+{
+  background-image: url('img/categories/entretenimiento.jpeg');
+}
+
+.customBorder
+{
+  border-bottom: 0.5px solid rgb(209, 209, 209);
+}
+
+/* style for the responsive */
+
+@media (max-width: 1280px) 
+{
+  .categories
+  {
+    width: 100%;
+    height: 80px;
+  }
+}
+
+@media (max-width: 768px) 
+{
+  .customContainer
+  {
+    width: 100%;
+    border-radius: 0%;
+  }
+
+  @keyframes move
+  {
+    from 
+    {
+      background-color: white;
+    }
+    to 
+    {
+
+      background-color: rgba(29, 78, 216, 0.7);
+    }
+  }
+}
+
+@media (max-width: 640px) 
+{
+  
+}
+
