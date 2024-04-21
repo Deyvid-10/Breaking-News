@@ -20,7 +20,7 @@ function Home() {
             <div className='lg:w-10/12 lg:p-0 px-2 mx-auto'>
                 <div className="xl:flex lg:block mb-2">
                     
-                    {/* <Firt category = "/article"/> */}
+                    <Firt category = "/article"/>
 
                     <div className="">
                         <div className="lg:w-full">
@@ -62,7 +62,7 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                {/* <List category = "/article"/> */}
+                <List category = "/article"/>
             </div>
             <Footer/>
         </div>
