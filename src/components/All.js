@@ -99,7 +99,8 @@ class All
     }
 }
 
-let all = new All("http://localhost:3000")
+// let all = new All("http://localhost:3000")
+let all = new All("")
 
 export default all;
   
