@@ -15,7 +15,7 @@ function Home() {
         
         <div>
 
-            {/* <Header category = "/article"/>
+            <Header category = "/article"/>
 
             <div className='lg:w-10/12 lg:p-0 px-2 mx-auto'>
                 <div className="xl:flex lg:block mb-2">
@@ -64,9 +64,7 @@ function Home() {
                 </div>
                 <List category = "/article"/>
             </div>
-            <Footer/> */}
-
-            <h1>sdsadsd</h1>
+            <Footer/>
         </div>
     
     );
