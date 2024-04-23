@@ -20,8 +20,13 @@ function Header() {
   
   // get de user data
   let getTokenUser = localStorage.getItem("tokenUser")
+  if(getTokenUser == null)
+  {
+    getTokenUser = localStorage.setItem("tokenUser", "")
+  }
+  let tokenUser = getTokenUser.split(",")
 
-  // let tokenUser = getTokenUser.split(",")
+
 
   console.log(getTokenUser);
   // console.log(tokenUser);
