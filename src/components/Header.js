@@ -25,11 +25,7 @@ function Header() {
     getTokenUser = localStorage.setItem("tokenUser", "")
   }
   let tokenUser = getTokenUser.split(",")
-
-
-
-  console.log(getTokenUser);
-  // console.log(tokenUser);
+  
 
   let [userName, setUserName] = useState("")
   let [userAvatar, setUserAvatar] = useState("")

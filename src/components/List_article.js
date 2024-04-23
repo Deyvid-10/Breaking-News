@@ -7,7 +7,12 @@ function List(props) {
   
     // get de user data
     let getTokenUser = localStorage.getItem("tokenUser")
+    if(getTokenUser == null)
+    {
+      getTokenUser = localStorage.setItem("tokenUser", "")
+    }
     let tokenUser = getTokenUser.split(",")
+    
 
     const getUserDates = () =>
     {
@@ -118,6 +123,10 @@ function List(props) {
     // function to create the delete buttom
     
     let getUserPermit = localStorage.getItem("userPermit")
+    if(getUserPermit == null)
+    {
+        getUserPermit = localStorage.setItem("userPermit", "")
+    }
     let userPermit = getUserPermit.split(",")
 
     let deleteButtom = (articleId, publisher) =>
