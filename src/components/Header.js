@@ -19,10 +19,11 @@ function Header() {
   }
   
   // get de user data
-  // let getTokenUser = localStorage.getItem("tokenUser")
-  // let tokenUser = getTokenUser.split(",")
+  let getTokenUser = localStorage.getItem("tokenUser")
+  let tokenUser = getTokenUser.split(",")
 
-  // console.log(tokenUser);
+  console.log(getTokenUser);
+  console.log(tokenUser);
 
   // let [userName, setUserName] = useState("")
   // let [userAvatar, setUserAvatar] = useState("")
