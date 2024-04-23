@@ -314,7 +314,7 @@ function List(props) {
     useEffect(()=>{getDataWeather()}, [])
 
     // foreign exchange label
-    // useEffect(()=>{foreignExchange()}, [])
+    useEffect(()=>{foreignExchange()}, [])
 
     const [pesoDollar, setPesoDollar] = useState(1)
     const [dollarPeso, setDollarPeso] = useState(0)
