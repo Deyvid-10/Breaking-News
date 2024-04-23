@@ -501,22 +501,6 @@ function List(props) {
                     {all.graphic("Libra esterlina", monthSterling[0], monthSterling[1], monthSterling[2], monthSterling[3], (1 / esterlingPrice).toFixed(3))}
                 </div>
             </div>
-
-            <div style={{ display: showDelete ? 'none' : 'flex'}} className='fixed left-0 top-0 w-full h-full justify-center items-center deleteShadow'>
-                <div className='bg-white rounded-xl p-5'>
-                    <div className='flex justify-end '>
-                        <svg className='hover:cursor-pointer' onClick={handleShowDelete} xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
-                        <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
-                        </svg>
-                    </div>
-                    <div className='flex justify-center mb-6'><img  className="w-12" src={process.env.PUBLIC_URL + "img/borrar.png"} /></div>
-                    <h2 className='text-xl'>Estas seguro que quieres eliminar este articulos?</h2>
-                    <div className='flex justify-end mt-5'>
-                        <button className='text-black' onClick={handleShowDelete}>Cancelar</button>
-                        <button className='ml-4 bg-red-600 hover:bg-red-700 text-white p-2 rounded-md' onClick={() => {deleteArticle(articleId)}}>Confirmar</button>
-                    </div>
-                </div>
-            </div>
             </div>
         )
     }
@@ -530,6 +514,22 @@ function List(props) {
    
                 {articleList}
                 <div className='flex justify-center'><button onClick={()=>{getArticlesItems();}} className="bg-black hover:bg-gray-900 text-white text-lg py-2 md:px-28 px-16 my-4">Mas publicaciones</button></div>
+
+                <div style={{ display: showDelete ? 'none' : 'flex'}} className='fixed left-0 top-0 w-full h-full justify-center items-center deleteShadow'>
+                    <div className='bg-white rounded-xl p-5'>
+                        <div className='flex justify-end '>
+                            <svg className='hover:cursor-pointer' onClick={handleShowDelete} xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                            </svg>
+                        </div>
+                        <div className='flex justify-center mb-6'><img  className="w-12" src={require('../img/icons/borrar.png')} /></div>
+                        <h2 className='text-xl'>Estas seguro que quieres eliminar este articulos?</h2>
+                        <div className='flex justify-end mt-5'>
+                            <button className='text-black' onClick={handleShowDelete}>Cancelar</button>
+                            <button className='ml-4 bg-red-600 hover:bg-red-700 text-white p-2 rounded-md' onClick={() => {deleteArticle(articleId)}}>Confirmar</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             {labels}
