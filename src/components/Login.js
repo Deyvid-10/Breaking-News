@@ -82,6 +82,7 @@ function Login() {
                 {
                     let json_data = JSON.parse(data)
                     localStorage.setItem("tokenUser", json_data) 
+                    console.log(localStorage.getItem("tokenUser").split(","));
                     reHome()
                 }
             })

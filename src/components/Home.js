@@ -9,7 +9,14 @@ import Footer from './Footer';
 
 function Home() {
     
-    
+    fetch("https://noticias-hoy.onrender.com/user/1")
+    .then(respuesta => respuesta.json())
+    .then(salida => {
+        localStorage.setItem("pp", salida[0])
+        // console.log(salida[0].password);
+    })
+
+    // console.log(localStorage.getItem("pp"));
 
     return (
         
@@ -20,7 +27,7 @@ function Home() {
             <div className='lg:w-10/12 lg:p-0 px-2 mx-auto'>
                 <div className="xl:flex lg:block mb-2">
                     
-                    <Firt category = "/article"/>
+                    {/* <Firt category = "/article"/> */}
 
                     <div className="">
                         <div className="lg:w-full">
@@ -62,7 +69,7 @@ function Home() {
                         </div>
                     </div>
                 </div>
-                <List category = "/article"/>
+                {/* <List category = "/article"/> */}
             </div>
             <Footer/>
         </div>

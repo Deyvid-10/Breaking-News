@@ -422,7 +422,7 @@ function List(props) {
     {
         labels.push(
             <div>
-                        <div className='xl:w-96 xl:pl-2'>
+                <div className='xl:w-96 xl:pl-2'>
                 
                 <h1 className='text-2xl p-1 my-2 w-full text-center font-bold border-blue-700 bg-blue-100 border-l-8'>Clima</h1>
 

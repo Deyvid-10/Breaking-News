@@ -22,6 +22,8 @@ function Header() {
   let getTokenUser = localStorage.getItem("tokenUser")
   let tokenUser = getTokenUser.split(",")
 
+  console.log(tokenUser);
+
   let [userName, setUserName] = useState("")
   let [userAvatar, setUserAvatar] = useState("")
 
@@ -175,7 +177,6 @@ function Header() {
             Buscar
             </button>
           </div>
-        {/* </div> */}
       </nav>
 
       <div className={showUserBar ? 'hidden' : 'flex sm:flex-row flex-col px-8 shadow-md bg-white justify-between py-2'}>
