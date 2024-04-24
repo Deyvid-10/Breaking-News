@@ -53,7 +53,9 @@ function Read() {
         .catch(error => {throw new Error ("Error  en la solicitud: " + error)})
     }
 
-    let url = "https://www.fanaticoswrestling.com/adam-copeland-resalta-la-importancia-de-decir-no-a-malas-ideas/";
+
+
+    let url = window.location.href;
 
     let article = [] 
     for (let item of readArticle) 
