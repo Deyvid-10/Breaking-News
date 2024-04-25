@@ -100,7 +100,7 @@ function Publish() {
           },
           body: JSON.stringify({
             title: title,
-            frontPage: frontPageImg,
+            front_page: frontPageImg,
             description: description,
             text: text,
             category: category,
