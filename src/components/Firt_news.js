@@ -140,7 +140,7 @@ function Firt(props) {
             <div>
                 <div onClick={()=>{reRead(item.id_article)}}  className='customSize md:mr-0 cursor-pointer overflow-hidden flex justify-center items-center relative'>
 
-                    <img className='w-full h-full object-cover' src={require(`../img/articles/${item.front_page}`)}/>
+                    <img className='w-full h-full object-cover' src={item.front_page}/>
                     <div className='absolute left-0 top-0 bgShadowFirt w-full h-full p-6 flex items-end'>
                         <div>
                             <div className='flex items-center'>

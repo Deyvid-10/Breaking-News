@@ -47,29 +47,10 @@ app.post("/tokenExpiration", (order, response) => {
   response.send(security.expiredToken(order.body.token))
 })
 
-// upload img
-
-const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, '../src/img/articles');
-  },
-  filename: function (req, file, cb) {
-    let fileName = Date.now() + '-' + file.originalname
-    cb(null, fileName);
-  }
-});
-const upload = multer({ storage: storage});
-
-app.post('/uploadImg', upload.single('file'), (order, response) => {
-
-  app.locals.frontPage = order.file.filename
-
-});
-
 // route for publish
 app.post("/publish", security.validateToken, (order, response) => {
 
-  MySQL.conection.query(`INSERT INTO article (title, description, front_page, body, category, publisher, time, day, month, year) VALUES ("${order.body.title}", "${order.body.description}", "${app.locals.frontPage}", '${order.body.text}', "${order.body.category}", ${order.body.publisher}, "${order.body.time}", ${order.body.day}, ${order.body.month}, ${order.body.year})`, (error, results) => {
+  MySQL.conection.query(`INSERT INTO article (title, description, front_page, body, category, publisher, time, day, month, year) VALUES ("${order.body.title}", "${order.body.description}", "${order.body.front_page}", '${order.body.text}', "${order.body.category}", ${order.body.publisher}, "${order.body.time}", ${order.body.day}, ${order.body.month}, ${order.body.year})`, (error, results) => {
     if (error) throw error
     response.send("Publicado exitosamente")
   });

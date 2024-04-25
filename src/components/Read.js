@@ -68,7 +68,7 @@ function Read() {
                 <h2 className='text-4xl font-bold'>{item.title}</h2>
                 <p className='mt-2'>{item.description}</p>
                 {user}
-                <img className='my-4 w-full' src={require(`../img/articles/${item.front_page}`)}/>
+                <img className='my-4 w-full' src={item.front_page}/>
                 <div className='md:flex'>
                     <div className='md:mx-4 mb-2 flex md:block'>
                         <a href={`https://www.facebook.com/sharer/sharer.php?u=${url}`} className='' target="_blank" rel="noopener noreferrer">
