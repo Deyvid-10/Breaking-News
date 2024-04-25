@@ -42,15 +42,9 @@ function Publish() {
         fileRef.getDownloadURL().then((urlIMG) => {
 
           save(`${urlIMG}`)
-        
+          setShowSpinner(!showSppiner)
         });
-      });
-
-      setTimeout(() => {
-        setShowSpinner(!showSppiner)
-      }, 3000);
-
-      
+      });    
 
       }
   };
