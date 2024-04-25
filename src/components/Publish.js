@@ -28,25 +28,40 @@ function Publish() {
   const [showSppiner, setShowSpinner] = useState(true);
 
   const handleUploadImg = () => {
-    if (frontPage) {
+    
+    let getTokenUser = localStorage.getItem("tokenUser")
+    let tokenUser = getTokenUser.split(",")
 
-      setShowSpinner(!showSppiner)
+    if(getTokenUser !== "")
+    {   
+      if(title !== "" && frontPage && description !== "" && text !== "" && category !== "")
+      {
+        setShowSpinner(!showSppiner)
 
-      let aditionalName = new Date().getTime()
+        let aditionalName = new Date().getTime()
 
-      const storageRef = firebase.storage().ref();
-      const fileRef = storageRef.child(aditionalName + " " + frontPage.name);
+        const storageRef = firebase.storage().ref();
+        const fileRef = storageRef.child(aditionalName + " " + frontPage.name);
 
-      fileRef.put(frontPage).then(() => {
-        console.log("Archivo subido correctamente");
-        fileRef.getDownloadURL().then((urlIMG) => {
+        fileRef.put(frontPage).then(() => {
+          console.log("Archivo subido correctamente");
+          fileRef.getDownloadURL().then((urlIMG) => {
 
-          save(`${urlIMG}`)
-          setShowSpinner(!showSppiner)
-        });
-      });    
-
+            save(`${urlIMG}`, tokenUser)
+            setShowSpinner(!showSppiner)
+          });
+        });   
       }
+      else
+      {
+        all.notification("negative", "Tienes que llenar todos los campos")
+      }
+    }
+    else
+    {
+      all.notification("negative", "No estas logeado, por favor ingresa")
+    }
+    
   };
 
   const [description, setDescription] = useState('');
@@ -71,7 +86,7 @@ function Publish() {
   }
 
   // boton function to save
-  const save = (frontPageImg) =>
+  const save = (frontPageImg, getTokenUser) =>
   { 
     // get datetime
     let datetime = new Date()
@@ -79,37 +94,29 @@ function Publish() {
     let currentDay = datetime.getDate()
     let currentMonth = datetime.getMonth() + 1
     let currentYear = datetime.getFullYear()
-
-    let getTokenUser = localStorage.getItem("tokenUser")
-    let tokenUser = getTokenUser.split(",")
     
-    if(getTokenUser !== "")
-    {   
-  
-      
-      if(title !== "" && frontPage !== "" && description !== "" && text !== "" && category !== "")
-      {
-        // publish article
-        
-        setTimeout(()=>{
-          fetch(`${all.link}/publish`, {
-          method: 'POST',
-          headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${tokenUser[0]}`
-          },
-          body: JSON.stringify({
-            title: title,
-            front_page: frontPageImg,
-            description: description,
-            text: text,
-            category: category,
-            publisher: Number(tokenUser[1]),
-            time: currentTime,
-            day: currentDay,
-            month: currentMonth,
-            year: currentYear
-          })
+    // publish article
+    
+    setTimeout(()=>
+    {
+      fetch(`${all.link}/publish`, {
+      method: 'POST',
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${getTokenUser[0]}`
+      },
+      body: JSON.stringify({
+        title: title,
+        front_page: frontPageImg,
+        description: description,
+        text: text,
+        category: category,
+        publisher: Number(getTokenUser[1]),
+        time: currentTime,
+        day: currentDay,
+        month: currentMonth,
+        year: currentYear
+      })
       })
       .then(respuesta => respuesta.text())
       .then(data => {
@@ -121,17 +128,8 @@ function Publish() {
         }
           
       })
-      .catch(error => { throw new Error("Error en la solicitud: " + error) })}, 1500)
-      }
-      else
-      {
-        all.notification("negative", "Tienes que llenar todos los campos")
-      }
-    }
-    else
-    {
-      all.notification("negative", "No estas logeado, por favor ingresa")
-    }
+      .catch(error => { throw new Error("Error en la solicitud: " + error) })
+    }, 500)
 
   }
 
