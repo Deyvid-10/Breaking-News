@@ -136,19 +136,6 @@ function Header() {
     setShowLogout(!showLogout)
   }
 
-  let [avatar, setAvatar] = useState([])
-  let profile = []
-  const chargeProfile = () =>
-  {
-    profile.push(
-      <img src={require(`../img/profile/caja.png`)} alt="avatar" className='w-10 border-2 border-blue-700 rounded-full'/>
-    )
-
-    setAvatar(profile)
-  }
-
-  useEffect(chargeProfile, [userAvatar])
-
   return (
 
     <div>
@@ -200,7 +187,7 @@ function Header() {
         <div className='flex flex-col items-end'>
           <div className='flex items-end hover:cursor-pointer' onClick={handelShowLogout}>
             <p className='text-xl mr-2 mb-2 font-bold'>{userName}</p>
-            {avatar}
+            {userAvatar && <img src={userAvatar} alt="avatar" className='w-10 border-2 border-blue-700 rounded-full'/>}
           </div>
 
      

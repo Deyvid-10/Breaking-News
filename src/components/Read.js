@@ -40,7 +40,7 @@ function Read() {
         .then(data=> {
             let publisherProfile = [
                 <div className='flex items-center mt-3'>
-                    <img className='w-10 h-10 mr-3 border-2 border-blue-700 rounded-full' src={require(`../img/profile/${data[0].avatar}`)} alt='perfil'/>
+                    <img className='w-10 h-10 mr-3 border-2 border-blue-700 rounded-full' src={data[0].avatar} alt='perfil'/>
                     <div>
                         <h2>Publicado: {date}</h2>
                         <p>By: <span className='font-bold'>{data[0].user}</span></p>
