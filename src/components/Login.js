@@ -96,7 +96,7 @@ function Login() {
     return (
         <div className="h-screen bg-slate-500 bg-img">
 
-            <img src="https://firebasestorage.googleapis.com/v0/b/prueba-36dc0.appspot.com/o/1714150786390%20662a948fe90f6.jpeg?alt=media&token=539ea6b8-0915-41fe-8138-1a449c352d0b" alt=""/>
+            {/* <img src="https://firebasestorage.googleapis.com/v0/b/prueba-36dc0.appspot.com/o/1714150786390%20662a948fe90f6.jpeg?alt=media&token=539ea6b8-0915-41fe-8138-1a449c352d0b" alt=""/> */}
 
             <div className='h-screen bg-img-black'>
                 <div className="flex flex-col shadow-lg items-center customContainer" id='customContainer2'>
