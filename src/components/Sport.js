@@ -1,10 +1,16 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Header from "./Header";
 import Firt from './Firt_news';
 import List from './List_article';
 import Footer from './Footer';
 
 function Sport() {
+
+  // title of the page
+  useEffect(()=>{
+    document.title = "Deporte - Noticias Hoy"
+  }, [])
+  
 
   return (
     <div>

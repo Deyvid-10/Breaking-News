@@ -22,6 +22,10 @@ function Read() {
     
             setReadArticle(data)
             getUserDates(data[0].publisher,`${data[0].day}/${data[0].month}/${data[0].year}`)
+
+            // title of the page
+            document.title = `${data[0].title} - Noticias Hoy`
+
         })
     }
     useEffect(getReadArticle, [])
@@ -39,7 +43,7 @@ function Read() {
         .then(respuesta => respuesta.json())
         .then(data=> {
             let publisherProfile = [
-                <div className='flex items-center mt-3'>
+                <div key={9} className='flex items-center mt-3'>
                     <img className='w-10 h-10 mr-3 border-2 border-blue-700 rounded-full' src={data[0].avatar} alt='perfil'/>
                     <div>
                         <h2>Publicado: {date}</h2>

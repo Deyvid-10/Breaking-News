@@ -68,13 +68,6 @@ function Header() {
 
   useEffect(handleShowUserBar, [])
 
-  // redirect to home page
-  let nav = useNavigate()
-  const rePublish = () =>
-  {
-    nav("/publish")
-  }
-
   // get the input search value from header
 
   const [searchValue, setSearchValue] = useState("")
@@ -176,13 +169,13 @@ function Header() {
           <div className='w-10 bg-white rounded-full'> </div>
         </div>
 
-        <button onClick={rePublish} className='flex items-center w-24 ml-auto mb-2 bg-blue-700 text-white sm:mb-0 sm:ml-2 px-2 py-1 rounded-md hover:bg-blue-600 font-bold'>
+        <Link to="/publish" className='flex items-center w-24 ml-auto mb-2 bg-blue-700 text-white sm:mb-0 sm:ml-2 px-2 py-1 rounded-md hover:bg-blue-600 font-bold'>
           <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" strokeWidth={0.5} stroke='white' className="mr-1" viewBox="0 0 16 16">
             <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14m0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16"></path>
             <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4"></path>
           </svg>
           Publicar
-        </button>
+        </Link>
 
         <div className='flex flex-col items-end'>
           <div className='flex items-end hover:cursor-pointer' onClick={handelShowLogout}>

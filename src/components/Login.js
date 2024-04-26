@@ -1,8 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Link, Routes, NavLink, useNavigate} from 'react-router-dom';
 import all from "./All";
 
 function Login() {
+
+    // title of the page
+    useEffect(()=>{
+        document.title = "Login - Noticias Hoy"
+      }, [])
 
     // get the inputs values
     const [email, setEmail] = useState('');
@@ -28,7 +33,7 @@ function Login() {
     // show logIN
 
     const [showLogIn, setShowLogIn] = useState(true)
-
+    const [showSpinner, setShowSpinner] = useState(true)
 
     const showLog = () =>
     {
@@ -55,11 +60,7 @@ function Login() {
     // login function
     const logIn = () => 
     {    
-    // var regex = /^[a-zA-Z0-9]+$/
-
-    // if(contraseña.value.match(regex))
-    // {
-
+        setShowSpinner(false)
         try {
             fetch(`${all.link}/user/logIn`, {
                 method: 'POST',
@@ -82,20 +83,14 @@ function Login() {
                 {
                     let json_data = JSON.parse(data)
                     localStorage.setItem("tokenUser", json_data) 
-                    console.log(localStorage.getItem("tokenUser").split(","));
                     reHome()
                 }
+                setShowSpinner(true)
             })
             .catch(error => { throw new Error("Error en la solicitud: " + error) })
         } catch (error) {
             console.error(error)
         }
-    // }
-    // else
-    // {
-    //     alert("No puedes ingresar caracteres especiales")
-    // }
-    // }
     }
 
     return (
@@ -142,13 +137,22 @@ function Login() {
                         </div>
                     </div>
 
-                    <button style={{ display: showLogIn ? 'none' : 'flex'}} type="button" className="flex items-center bg-gray-900 border-2 text-white text-lg m-4  px-2 py-1 rounded-md hover:bg-gray-800 font-bold" onClick={logIn}>
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="mr-2" viewBox="0 0 16 16">
-                        <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1"></path>
-                        <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117M11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5M4 1.934V15h6V1.077z"></path>
-                        </svg>
-                    Ingresa
-                </button>
+                    <div className='flex items-center'>
+                        <button style={{ display: showLogIn ? 'none' : 'flex'}} type="button" className="flex items-center bg-gray-900 border-2 text-white text-lg m-4  px-2 py-1 rounded-md hover:bg-gray-800 font-bold" onClick={logIn}>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" className="mr-2" viewBox="0 0 16 16">
+                            <path d="M8.5 10c-.276 0-.5-.448-.5-1s.224-1 .5-1 .5.448.5 1-.224 1-.5 1"></path>
+                            <path d="M10.828.122A.5.5 0 0 1 11 .5V1h.5A1.5 1.5 0 0 1 13 2.5V15h1.5a.5.5 0 0 1 0 1h-13a.5.5 0 0 1 0-1H3V1.5a.5.5 0 0 1 .43-.495l7-1a.5.5 0 0 1 .398.117M11.5 2H11v13h1V2.5a.5.5 0 0 0-.5-.5M4 1.934V15h6V1.077z"></path>
+                            </svg>
+                        Ingresa
+                        </button>
+
+                        <div id='spinner4' className={showSpinner ? "hidden":"block"} role="status">
+                            <svg aria-hidden="true" className="w-5 h-5 text-center text-gray-200 animate-spin fill-black" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+                                <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+                            </svg>
+                        </div>
+                    </div>
                 
                     <div className="flex justify-around w-52 mb-6 mt-auto text-blue-800" id='socialMediaChange'>
                         <a href="https://www.youtube.com/" className=" hover:text-black" target="_blank">

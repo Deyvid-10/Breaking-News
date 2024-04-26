@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect} from 'react';
 import { BrowserRouter as Router, Route, Link, Routes, NavLink, useNavigate} from 'react-router-dom';
 
 import Firt from './Firt_news';
@@ -8,6 +8,12 @@ import Footer from './Footer';
 
 
 function Home() {
+
+    // title of the page
+    useEffect(()=>{
+    document.title = "Noticias Hoy"
+    }, [])
+      
 
     return (
         

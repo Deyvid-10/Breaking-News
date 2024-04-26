@@ -21,6 +21,11 @@ function Search() {
         typeofSearch = "/article"
     }
 
+    // title of the page
+    useEffect(()=>{
+        document.title = `Buscar: ${target} - Noticias Hoy`
+    }, [])
+
   return (
     <div>
         <Header/>

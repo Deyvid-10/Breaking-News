@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import Firt from './Firt_news';
 import List from './List_article';
 import Header from "./Header";
@@ -6,6 +6,10 @@ import Footer from './Footer';
 
 function General() {
 
+  // title of the page
+  useEffect(()=>{
+    document.title = "General - Noticias Hoy"
+  }, [])
   
 
   return (
