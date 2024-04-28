@@ -50,7 +50,7 @@ app.post("/tokenExpiration", (order, response) => {
 // route for publish
 app.post("/publish", security.validateToken, (order, response) => {
 
-  MySQL.conection.query(`INSERT INTO article (title, description, front_page, body, category, publisher, time, day, month, year) VALUES ("${order.body.title}", "${order.body.description}", "${order.body.front_page}", '${order.body.text}', "${order.body.category}", ${order.body.publisher}, "${order.body.time}", ${order.body.day}, ${order.body.month}, ${order.body.year})`, (error, results) => {
+  MySQL.conection.query(`INSERT INTO article (title, description, front_page, body, category, publisher, time, day, month, year) VALUES ('${order.body.title}', '${order.body.description}', "${order.body.front_page}", '${order.body.text}', "${order.body.category}", ${order.body.publisher}, "${order.body.time}", ${order.body.day}, ${order.body.month}, ${order.body.year})`, (error, results) => {
     if (error) throw error
     response.send("Publicado exitosamente")
   });
