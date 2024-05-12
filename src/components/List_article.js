@@ -232,7 +232,7 @@ function List(props) {
                 article.push
                 (
                     <div key={item.id_article}>
-                        <Link to={`/read/${item.id_article}`} className='md:flex  w-full hover:cursor-pointer mb-2 hover:text-gray-700'>
+                        <a href={`/read/${item.id_article}`} className='md:flex  w-full hover:cursor-pointer mb-2 hover:text-gray-700'>
                             <div className='md:w-96 w-full h-48 overflow-hidden relative'>
                                 <img className='w-full h-full object-cover' src={item.front_page}/>
                                 
@@ -252,7 +252,7 @@ function List(props) {
                                 </div>
                             
                             </div>
-                        </Link>
+                        </a>
                         
                     {deleteButtom(item.id_article, item.publisher, item.front_page)}
                     </div>
