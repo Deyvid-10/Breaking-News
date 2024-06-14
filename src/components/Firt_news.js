@@ -61,6 +61,8 @@ function Firt(props) {
             spinner.style.display = "none"
            
         })
+
+        
         
     }
 
@@ -68,6 +70,7 @@ function Firt(props) {
 
     const chargeArticle = (item) =>
     {
+        console.log(item);
          // get datetime
          let datetime = new Date()
          let currentTime = datetime.getTime()
@@ -116,7 +119,7 @@ function Firt(props) {
                              }
                              else
                              {
-                                 textTime = `publicado: ${firtArticles.day}/${firtArticles.month}/${firtArticles.year}`
+                                 textTime = `publicado: ${item.day}/${item.month}/${item.year}`
                              }
                          }
                      }
