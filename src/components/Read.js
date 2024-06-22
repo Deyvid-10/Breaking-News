@@ -103,7 +103,7 @@ function Read() {
 
         <div>
             <Header/>
-            <div className='lg:w-10/12 lg:p-0 px-2 mx-auto mt-4'>
+            <div className='lg:p-0 px-2 mx-auto mt-4 newCustomContainer'>
                 {article}
                 <List category = "/article" displayFirt = "true" labels = "notView" reload = "true" />
             </div>

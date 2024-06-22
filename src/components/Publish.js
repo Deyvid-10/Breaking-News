@@ -143,7 +143,7 @@ function Publish() {
     <div>
       <Header/>
       
-      <div className='lg:w-10/12 lg:p-0 px-2 mx-auto'>
+      <div className='lg:p-0 px-2 mx-auto mt-4 newCustomContainer'>
         <h2 className='flex justify-center p-1 my-2 text-3xl font-bold border-blue-700 bg-blue-100 border-l-8'>Publica un articulo</h2>
       
         <input className="w-full border-gray-300 border-2 p-2 placeholder:text-black rounded-md" value={title} onChange={getTitle} id="floatingPassword" placeholder="Titulo"></input>

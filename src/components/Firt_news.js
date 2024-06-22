@@ -70,7 +70,6 @@ function Firt(props) {
 
     const chargeArticle = (item) =>
     {
-        console.log(item);
          // get datetime
          let datetime = new Date()
          let currentTime = datetime.getTime()

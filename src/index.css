@@ -340,6 +340,12 @@ body {
   border-bottom: 0.5px solid rgb(209, 209, 209);
 }
 
+/* Contenedor */
+.newCustomContainer
+{
+  width: 1200px;
+}
+
 /* style for the responsive */
 
 @media (max-width: 1280px) 
@@ -349,11 +355,24 @@ body {
     width: 100%;
     height: 80px;
   }
+
+  .newCustomContainer
+  {
+    width: 1000px;
+  }
+}
+
+@media (max-width: 1024px) 
+{
+  .newCustomContainer
+  {
+    width: 91.666667%;;
+  }
 }
 
 @media (max-width: 768px) 
 {
-  .customContainer
+  .newCustomContainer
   {
     width: 100%;
     border-radius: 0%;
@@ -370,6 +389,11 @@ body {
 
       background-color: rgba(29, 78, 216, 0.7);
     }
+  }
+
+  .newCustomContainer
+  {
+    width: 100%;
   }
 }
 

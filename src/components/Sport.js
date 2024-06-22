@@ -15,7 +15,7 @@ function Sport() {
   return (
     <div>
       <Header/>
-      <div className='lg:w-10/12 lg:p-0 px-2 mx-auto'>
+      <div className='lg:p-0 px-2 mx-auto newCustomContainer'>
         <div className='mb-2'>
           <Firt category = "/sport"/>
         </div>

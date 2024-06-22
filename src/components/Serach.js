@@ -30,7 +30,7 @@ function Search() {
     <div>
         <Header/>
        
-        <div className='lg:w-10/12 lg:p-0 px-2 mx-auto'>
+        <div className='lg:p-0 px-2 mx-auto newCustomContainer'>
             <List category = {typeofSearch} search = {target} displayFirt = "true" labels = "notView"  />
         </div>
         <Footer/>
